@@ -23,3 +23,11 @@
 ![Alt text](cba48f285b4e5d58145ff842fb36acd.png)
 
 啥也不是，散会
+
+刚发现作业要求评估的模型是internlm2的，这里补下对它的评估，方法很简单，改下模型路径就行。
+
+```
+python run.py --datasets ceval_gen --hf-path /share/model_repos/internlm2-chat-7b --tokenizer-kwargs padding_side='left' truncation='left' trust_remote_code=True --model-kwargs trust_remote_code=True device_map='auto' --max-seq-len 2048 --max-out-len 16 --batch-size 4 --num-gpus 1 --debug
+```
+
+![Alt text](image-4.png)
